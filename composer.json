@@ -4,10 +4,10 @@
   "description": "TYPO3 extension for managing and displaying chess tournament results",
   "license": "GPL-2.0-or-later",
   "require": {
-    "typo3/cms-core": "^14.0",
-    "typo3/cms-extbase": "^14.0",
-    "typo3/cms-fluid": "^14.0",
-    "typo3/cms-frontend": "^14.0"
+    "typo3/cms-core": "^13.4",
+    "typo3/cms-extbase": "^13.4",
+    "typo3/cms-fluid": "^13.4",
+    "typo3/cms-frontend": "^13.4"
   },
   "autoload": {
     "psr-4": {

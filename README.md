@@ -1,4 +1,4 @@
-# Chess Tournament Results (TYPO3 v14+)
+# Chess Tournament Results (TYPO3 v13.4)
 
 Diese Extension stellt eine einfache Turnierverwaltung für Schachturniere bereit.
 
