@@ -4,11 +4,11 @@ services:
     autoconfigure: true
     public: false
 
-  ChessTournamentResults\\:
+  'ChessTournamentResults\':
     resource: '../Classes/*'
     exclude:
       - '../Classes/Domain/Model/*'
 
-  ChessTournamentResults\\Controller\\:
+  'ChessTournamentResults\Controller\':
     resource: '../Classes/Controller/*'
     public: true
