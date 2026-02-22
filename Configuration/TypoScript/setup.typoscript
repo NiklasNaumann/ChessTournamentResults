@@ -1,0 +1,10 @@
+plugin.tx_chesstournamentresults_tournament {
+  view {
+    templateRootPaths.10 = EXT:chess_tournament_results/Resources/Private/Templates/
+    partialRootPaths.10 = EXT:chess_tournament_results/Resources/Private/Partials/
+    layoutRootPaths.10 = EXT:chess_tournament_results/Resources/Private/Layouts/
+  }
+  persistence {
+    storagePid = {$plugin.tx_chesstournamentresults_tournament.persistence.storagePid}
+  }
+}

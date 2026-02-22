@@ -1,0 +1,22 @@
+<f:layout name="Default" />
+
+<f:section name="main">
+    <h2>Endrangliste: {tournament.title}</h2>
+
+    <f:if condition="{lastRound}">
+        <p>Stand nach Runde {lastRound.roundNumber}</p>
+        <table>
+            <thead><tr><th>Platz</th><th>Spieler</th><th>Punkte</th><th>Buchholz</th></tr></thead>
+            <tbody>
+            <f:for each="{standings}" as="standing">
+                <tr>
+                    <td>{standing.position}</td>
+                    <td>{standing.playerName}</td>
+                    <td>{standing.points}</td>
+                    <td>{standing.buchholz}</td>
+                </tr>
+            </f:for>
+            </tbody>
+        </table>
+    </f:if>
+</f:section>
