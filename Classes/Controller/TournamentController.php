@@ -7,6 +7,7 @@ namespace ChessTournamentResults\Controller;
 use ChessTournamentResults\Domain\Model\Round;
 use ChessTournamentResults\Domain\Model\Tournament;
 use ChessTournamentResults\Domain\Repository\TournamentRepository;
+use Psr\Http\Message\ResponseInterface;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 class TournamentController extends ActionController
@@ -16,20 +17,24 @@ class TournamentController extends ActionController
     ) {
     }
 
-    public function listAction(): void
+    public function listAction(): ResponseInterface
     {
         $this->view->assign('tournaments', $this->tournamentRepository->findAll());
+
+        return $this->htmlResponse();
     }
 
-    public function showAction(Tournament $tournament): void
+    public function showAction(Tournament $tournament): ResponseInterface
     {
         $this->view->assignMultiple([
             'tournament' => $tournament,
             'rounds' => $this->sortedRounds($tournament),
         ]);
+
+        return $this->htmlResponse();
     }
 
-    public function startListAction(Tournament $tournament): void
+    public function startListAction(Tournament $tournament): ResponseInterface
     {
         $players = $tournament->getPlayers()->toArray();
         usort($players, static fn ($a, $b) => $a->getStartingRank() <=> $b->getStartingRank());
@@ -38,9 +43,11 @@ class TournamentController extends ActionController
             'tournament' => $tournament,
             'players' => $players,
         ]);
+
+        return $this->htmlResponse();
     }
 
-    public function roundRankingAction(Tournament $tournament, ?Round $round = null): void
+    public function roundRankingAction(Tournament $tournament, ?Round $round = null): ResponseInterface
     {
         $rounds = $this->sortedRounds($tournament);
         $activeRound = $round ?? ($rounds[array_key_last($rounds)] ?? null);
@@ -51,9 +58,11 @@ class TournamentController extends ActionController
             'activeRound' => $activeRound,
             'standings' => $activeRound?->getStandings(),
         ]);
+
+        return $this->htmlResponse();
     }
 
-    public function roundPairingsAction(Tournament $tournament, ?Round $round = null): void
+    public function roundPairingsAction(Tournament $tournament, ?Round $round = null): ResponseInterface
     {
         $rounds = $this->sortedRounds($tournament);
         $activeRound = $round ?? ($rounds[array_key_last($rounds)] ?? null);
@@ -64,9 +73,11 @@ class TournamentController extends ActionController
             'activeRound' => $activeRound,
             'pairings' => $activeRound?->getPairings(),
         ]);
+
+        return $this->htmlResponse();
     }
 
-    public function finalRankingAction(Tournament $tournament): void
+    public function finalRankingAction(Tournament $tournament): ResponseInterface
     {
         $rounds = $this->sortedRounds($tournament);
         $lastRound = $rounds[array_key_last($rounds)] ?? null;
@@ -76,6 +87,8 @@ class TournamentController extends ActionController
             'lastRound' => $lastRound,
             'standings' => $lastRound?->getStandings(),
         ]);
+
+        return $this->htmlResponse();
     }
 
     /**
