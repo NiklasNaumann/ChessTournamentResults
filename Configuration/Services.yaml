@@ -1,0 +1,14 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  'ChessTournamentResults\':
+    resource: '../Classes/*'
+    exclude:
+      - '../Classes/Domain/Model/*'
+
+  'ChessTournamentResults\Controller\':
+    resource: '../Classes/Controller/*'
+    public: true
