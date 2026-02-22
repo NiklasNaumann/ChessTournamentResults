@@ -1,0 +1,22 @@
+<f:layout name="Default" />
+
+<f:section name="main">
+    <h2>Rundenpaarungsliste: {tournament.title}</h2>
+
+    <f:if condition="{activeRound}">
+        <h3>Runde {activeRound.roundNumber} - {activeRound.name}</h3>
+        <table>
+            <thead><tr><th>Brett</th><th>Weiß</th><th>Schwarz</th><th>Ergebnis</th></tr></thead>
+            <tbody>
+            <f:for each="{pairings}" as="pairing">
+                <tr>
+                    <td>{pairing.board}</td>
+                    <td>{pairing.whitePlayer}</td>
+                    <td>{pairing.blackPlayer}</td>
+                    <td>{pairing.result}</td>
+                </tr>
+            </f:for>
+            </tbody>
+        </table>
+    </f:if>
+</f:section>

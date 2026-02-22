@@ -1,0 +1,18 @@
+<f:layout name="Default" />
+
+<f:section name="main">
+    <h2>Startrangliste: {tournament.title}</h2>
+    <table>
+        <thead><tr><th>Rang</th><th>Name</th><th>Verein</th><th>Elo</th></tr></thead>
+        <tbody>
+        <f:for each="{players}" as="player">
+            <tr>
+                <td>{player.startingRank}</td>
+                <td>{player.name}</td>
+                <td>{player.club}</td>
+                <td>{player.rating}</td>
+            </tr>
+        </f:for>
+        </tbody>
+    </table>
+</f:section>

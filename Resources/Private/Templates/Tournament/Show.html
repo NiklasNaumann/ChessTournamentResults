@@ -1,0 +1,14 @@
+<f:layout name="Default" />
+
+<f:section name="main">
+    <h2>{tournament.title}</h2>
+    <p>{tournament.location}</p>
+    <p>{tournament.description}</p>
+
+    <ul>
+        <li><f:link.action action="startList" arguments="{tournament:tournament}">Startrangliste</f:link.action></li>
+        <li><f:link.action action="roundRanking" arguments="{tournament:tournament}">Rundenrangliste</f:link.action></li>
+        <li><f:link.action action="roundPairings" arguments="{tournament:tournament}">Rundenpaarungsliste</f:link.action></li>
+        <li><f:link.action action="finalRanking" arguments="{tournament:tournament}">Endrangliste</f:link.action></li>
+    </ul>
+</f:section>

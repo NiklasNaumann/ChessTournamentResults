@@ -1,0 +1,12 @@
+<f:layout name="Default" />
+
+<f:section name="main">
+    <h2>Schachturniere</h2>
+    <ul>
+        <f:for each="{tournaments}" as="tournament">
+            <li>
+                <f:link.action action="show" arguments="{tournament: tournament}">{tournament.title}</f:link.action>
+            </li>
+        </f:for>
+    </ul>
+</f:section>
